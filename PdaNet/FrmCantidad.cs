@@ -22,7 +22,7 @@ namespace PdaNet
             this.InitializeComponent();
             this.txtEntero.SelectAll();
             this.txtEntero.Focus();
-            
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -43,6 +43,7 @@ namespace PdaNet
                 this.producto.setCaEntero(0);
                 this.chequeador.guardar(this.producto);
                 this.lblEnteroActual.Text = "0";
+                this.txtEntero.Text = "0";
                 this.txtEntero.SelectAll();
                 this.txtEntero.Focus();
             }
@@ -53,11 +54,12 @@ namespace PdaNet
             DialogResult dialogresult = MessageBox.Show("¿Estás seguro resetear la cantidad de fraccionados?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
             if (dialogresult == DialogResult.Yes)
             {
-            this.producto.setCaFraccion(0);
-            this.chequeador.guardar(this.producto);
-            this.lblFraccionActual.Text = "0";
-            this.txtFraccion.SelectAll();
-            this.txtFraccion.Focus();
+                this.producto.setCaFraccion(0);
+                this.chequeador.guardar(this.producto);
+                this.lblFraccionActual.Text = "0";
+                this.txtFraccion.Text = "0";
+                this.txtFraccion.SelectAll();
+                this.txtFraccion.Focus();
             }
         }
 
@@ -78,7 +80,7 @@ namespace PdaNet
             {
                 this.txtNunAnaquel.Text = this.chequeador.getNumAnaquel();
             }
-            this.txtEntero.Text = "0";
+            this.txtEntero.Text = "1";
             this.txtFraccion.Text = "0";
             this.txtEntero.SelectAll();
             if (this.producto.getInProdFraccionado().Equals("S"))
@@ -155,6 +157,23 @@ namespace PdaNet
                     this.txtFraccion.SelectAll();
                     this.txtFraccion.Focus();
                 }
+            } else
+            // Validación para ingresar solo números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
 
@@ -163,6 +182,48 @@ namespace PdaNet
             if (e.KeyChar == '\r')
             {
                 this.guardarDatos();
+            } else
+            // Validación para ingresar solo números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNunAnaquel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                this.guardarDatos();
+            } else
+            // Validación para ingresar solo números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
 

@@ -107,6 +107,8 @@
             this.txtNumAnaquel.Name = "txtNumAnaquel";
             this.txtNumAnaquel.Size = new System.Drawing.Size(59, 32);
             this.txtNumAnaquel.TabIndex = 1;
+            this.txtNumAnaquel.MaxLength = 3;
+            this.txtNumAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumAnaquel_KeyPress);
             // 
             // lblAnaquel
             // 

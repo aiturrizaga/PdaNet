@@ -169,6 +169,7 @@
             this.txtEntero.TabIndex = 5;
             this.txtEntero.Text = "15000";
             this.txtEntero.WordWrap = false;
+            this.txtEntero.MaxLength = 7;
             this.txtEntero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntero_KeyPress);
             // 
             // txtFraccion
@@ -182,6 +183,7 @@
             this.txtFraccion.TabIndex = 4;
             this.txtFraccion.Text = "15000";
             this.txtFraccion.WordWrap = false;
+            this.txtFraccion.MaxLength = 7;
             this.txtFraccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFraccion_KeyPress);
             // 
             // lblFraccionActual
@@ -236,7 +238,9 @@
             this.txtNunAnaquel.Name = "txtNunAnaquel";
             this.txtNunAnaquel.Size = new System.Drawing.Size(62, 32);
             this.txtNunAnaquel.TabIndex = 18;
+            this.txtNunAnaquel.MaxLength = 3;
             this.txtNunAnaquel.Text = "1";
+            this.txtNunAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNunAnaquel_KeyPress);
             // 
             // FrmCantidad
             // 

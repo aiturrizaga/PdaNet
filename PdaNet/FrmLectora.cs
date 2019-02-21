@@ -111,6 +111,49 @@ namespace PdaNet
             {
                 this.Dispose(true);
             }
+
+            // Validación para ingresar solo números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumAnaquel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Validación para ingresar solo números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            /*if (e.KeyChar == '\r')
+            {
+                this.txtCodigo.Focus();
+            }*/
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
