@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdaNet", "PdaNet\PdaNet.csproj", "{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5A46F74-02C0-4E0C-B3A2-0002C39E2E2E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
