@@ -66,7 +66,7 @@ namespace PdaNet
         {
             this.actualizarEstado();
 
-            this.Text = this.Text + " " + this.obtenerVersion();
+            this.Text = this.Text + " " + this.obtenerVersion() + " - " + this.chequeador.getUserNameFromFile();
             if (Directory.Exists(@"\Flash Disk"))
             {
                 Configuracion.lectoraTipo = "P";

@@ -124,13 +124,12 @@
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnInventario);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "Sistema de inventario";
+            this.Text = "PdaNet";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.KeyPreview = true;
-            //this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmMain_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyEvent);
             this.ResumeLayout(false);
 

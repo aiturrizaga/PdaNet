@@ -195,6 +195,21 @@ namespace PdaNet
             }
         }
 
+        public string getUserNameFromFile()
+        {
+            string userName = "";
+            try
+            {
+                TextReader reader = new StreamReader(@"\My Documents\PdaUser.txt");
+                userName = reader.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+            }
+            return "(" + userName + ")";
+        }
+
         public void guardar(ProductoLaboratorio producto)
         {
             try
