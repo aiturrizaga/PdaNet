@@ -36,12 +36,15 @@
             this.btnImportar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEstado = new System.Windows.Forms.Button();
+            this.lblF12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInventario
             // 
+            this.btnInventario.BackColor = System.Drawing.Color.Teal;
             this.btnInventario.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnInventario.Location = new System.Drawing.Point(62, 64);
+            this.btnInventario.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnInventario.Location = new System.Drawing.Point(62, 57);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(194, 50);
             this.btnInventario.TabIndex = 0;
@@ -53,7 +56,7 @@
             this.btnSalir.BackColor = System.Drawing.Color.Firebrick;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(62, 205);
+            this.btnSalir.Location = new System.Drawing.Point(62, 188);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(194, 50);
             this.btnSalir.TabIndex = 3;
@@ -63,7 +66,7 @@
             // btnExportar
             // 
             this.btnExportar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnExportar.Location = new System.Drawing.Point(62, 135);
+            this.btnExportar.Location = new System.Drawing.Point(62, 122);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(194, 50);
             this.btnExportar.TabIndex = 2;
@@ -101,12 +104,21 @@
             this.btnEstado.Text = "Desconfigurado";
             this.btnEstado.Click += new System.EventHandler(this.btnEstado_Click);
             // 
+            // lblF12
+            // 
+            this.lblF12.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.lblF12.Location = new System.Drawing.Point(6, 248);
+            this.lblF12.Name = "lblF12";
+            this.lblF12.Size = new System.Drawing.Size(198, 20);
+            this.lblF12.Text = "[F12] Formatear inventario";
+            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(318, 288);
             this.ControlBox = false;
+            this.Controls.Add(this.lblF12);
             this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExportar);
@@ -117,6 +129,9 @@
             this.Name = "FrmMain";
             this.Text = "Sistema de inventario";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.KeyPreview = true;
+            //this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmMain_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyEvent);
             this.ResumeLayout(false);
 
         }
@@ -129,5 +144,6 @@
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEstado;
+        private System.Windows.Forms.Label lblF12;
     }
 }

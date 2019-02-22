@@ -96,6 +96,12 @@ namespace PdaNet
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            /*if (e.KeyChar == '\t')
+            {
+                TabPage page = this.txtCodigo.TabIndex;
+                foreach (Control ctl in page.Controls) ctl.Enabled = false;
+            }
+            else*/
             if (e.KeyChar == '\r')
             {
                 if (this.txtCodigo.Text == String.Empty)
@@ -133,6 +139,10 @@ namespace PdaNet
 
         private void txtNumAnaquel_KeyPress(object sender, KeyPressEventArgs e)
         {
+            /*if (e.KeyChar == '\t')
+            {
+                this.txtCodigo.Focus();
+            } else*/
             // Validación para ingresar solo números
             if (Char.IsDigit(e.KeyChar))
             {
@@ -150,10 +160,6 @@ namespace PdaNet
             {
                 e.Handled = true;
             }
-            /*if (e.KeyChar == '\r')
-            {
-                this.txtCodigo.Focus();
-            }*/
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)

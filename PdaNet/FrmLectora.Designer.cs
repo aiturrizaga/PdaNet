@@ -104,10 +104,10 @@
             // 
             this.txtNumAnaquel.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.txtNumAnaquel.Location = new System.Drawing.Point(23, 32);
+            this.txtNumAnaquel.MaxLength = 3;
             this.txtNumAnaquel.Name = "txtNumAnaquel";
             this.txtNumAnaquel.Size = new System.Drawing.Size(59, 32);
             this.txtNumAnaquel.TabIndex = 1;
-            this.txtNumAnaquel.MaxLength = 3;
             this.txtNumAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumAnaquel_KeyPress);
             // 
             // lblAnaquel

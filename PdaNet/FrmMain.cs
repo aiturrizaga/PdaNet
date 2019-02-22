@@ -79,6 +79,15 @@ namespace PdaNet
             }
         }
 
+        private void FrmMain_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F12)
+            {
+                FrmFormateo frmFormateo = new FrmFormateo();
+                frmFormateo.Show();
+            }
+        }
+
         public string obtenerVersion()
         {
             AssemblyName name = Assembly.GetExecutingAssembly().GetName();

@@ -54,7 +54,9 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.BackColor = System.Drawing.Color.Teal;
             this.btnAceptar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAceptar.Location = new System.Drawing.Point(8, 243);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(120, 40);
@@ -163,13 +165,12 @@
             // 
             this.txtEntero.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.txtEntero.Location = new System.Drawing.Point(8, 134);
-            this.txtEntero.MaxLength = 0;
+            this.txtEntero.MaxLength = 7;
             this.txtEntero.Name = "txtEntero";
             this.txtEntero.Size = new System.Drawing.Size(92, 32);
             this.txtEntero.TabIndex = 5;
             this.txtEntero.Text = "15000";
             this.txtEntero.WordWrap = false;
-            this.txtEntero.MaxLength = 7;
             this.txtEntero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntero_KeyPress);
             // 
             // txtFraccion
@@ -177,13 +178,12 @@
             this.txtFraccion.Enabled = false;
             this.txtFraccion.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.txtFraccion.Location = new System.Drawing.Point(8, 191);
-            this.txtFraccion.MaxLength = 0;
+            this.txtFraccion.MaxLength = 7;
             this.txtFraccion.Name = "txtFraccion";
             this.txtFraccion.Size = new System.Drawing.Size(92, 32);
             this.txtFraccion.TabIndex = 4;
             this.txtFraccion.Text = "15000";
             this.txtFraccion.WordWrap = false;
-            this.txtFraccion.MaxLength = 7;
             this.txtFraccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFraccion_KeyPress);
             // 
             // lblFraccionActual
@@ -235,10 +235,10 @@
             // 
             this.txtNunAnaquel.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.txtNunAnaquel.Location = new System.Drawing.Point(241, 85);
+            this.txtNunAnaquel.MaxLength = 3;
             this.txtNunAnaquel.Name = "txtNunAnaquel";
             this.txtNunAnaquel.Size = new System.Drawing.Size(62, 32);
             this.txtNunAnaquel.TabIndex = 18;
-            this.txtNunAnaquel.MaxLength = 3;
             this.txtNunAnaquel.Text = "1";
             this.txtNunAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNunAnaquel_KeyPress);
             // 

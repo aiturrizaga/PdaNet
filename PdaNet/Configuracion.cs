@@ -15,6 +15,6 @@ namespace PdaNet
         public static string archDiferencias = "productoInventario.txt";
         //public static string directorio = @"C:\";
         public static string lectoraTipo = "P";
-        public static string version = "2.0.0";
+        public static string version = "2.1.0";
     }
 }

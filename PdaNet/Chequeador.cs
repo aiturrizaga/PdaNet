@@ -87,12 +87,12 @@ namespace PdaNet
                 else
                 {
                     this.rp.deleteAllProductoInventario();
-                    MessageBox.Show("Proceso correcto.");
+                    MessageBox.Show("Formateo exitoso.");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Proceso incorrecto.");
+                MessageBox.Show("Error al formatear.");
             }
         }
 

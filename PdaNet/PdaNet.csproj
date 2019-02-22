@@ -76,6 +76,12 @@
     <Compile Include="FrmCantidad.Designer.cs">
       <DependentUpon>FrmCantidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFormateo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormateo.Designer.cs">
+      <DependentUpon>FrmFormateo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLectora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCantidad.resx">
       <DependentUpon>FrmCantidad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormateo.resx">
+      <DependentUpon>FrmFormateo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLectora.resx">
