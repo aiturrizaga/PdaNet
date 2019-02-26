@@ -128,9 +128,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "PdaNet";
+            this.Text = "PdaNet ";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyEvent);
+            this.Activated += new System.EventHandler(this.FrmMain_Activated);
             this.ResumeLayout(false);
 
         }

@@ -50,6 +50,8 @@ namespace PdaNet
             if (!this.chequeador.procesarProducto(codProd))
             {
                 MessageBox.Show("Producto no encontrado");
+                this.txtCodigo.SelectAll();
+                this.txtCodigo.Focus();
             }
             else
             {

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFormatearPDA = new System.Windows.Forms.Button();
+            this.lblF10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -91,11 +92,20 @@
             this.btnFormatearPDA.Text = "Formatear PDA";
             this.btnFormatearPDA.Click += new System.EventHandler(this.btnFormatearPDA_Click);
             // 
+            // lblF10
+            // 
+            this.lblF10.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.lblF10.Location = new System.Drawing.Point(3, 249);
+            this.lblF10.Name = "lblF10";
+            this.lblF10.Size = new System.Drawing.Size(198, 20);
+            this.lblF10.Text = "[F10] Restablecer PDA";
+            // 
             // FrmFormateo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(318, 288);
+            this.Controls.Add(this.lblF10);
             this.Controls.Add(this.btnFormatearPDA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -106,6 +116,8 @@
             this.MinimizeBox = false;
             this.Name = "FrmFormateo";
             this.Text = "Formatear datos";
+            this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmFormateo_KeyEvent);
             this.ResumeLayout(false);
 
         }
@@ -117,5 +129,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnFormatearPDA;
+        private System.Windows.Forms.Label lblF10;
     }
 }

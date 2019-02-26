@@ -8,7 +8,7 @@ namespace PdaNet
     public class Connection
     {
         private static SqlCeConnection instance;
-        private static SQLiteConnection cn;
+        public static SQLiteConnection cn;
 
         public static SqlCeConnection getConnection()
         {

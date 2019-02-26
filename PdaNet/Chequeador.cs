@@ -76,13 +76,40 @@ namespace PdaNet
             }
         }
 
-        public void deleteAllProductoInventario()
+        public void formatearBD()
         {
             try
             {
                 if (!this.existeBD())
                 {
-                    MessageBox.Show("BD. no existe", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //MessageBox.Show("BD. no existe", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //File.Delete(@"\My Documents\eckerd.s3db");
+                    File.Copy(@"\My Documents\eckerd_bk.s3db", Configuracion.directorio + Configuracion.baseDatos, true);
+                }
+                else
+                {
+                    this.rp.deleteAllProductoInventario();
+                    MessageBox.Show("Formateo exitoso.");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al formatear.");
+            }
+        }
+
+        public void deleteAllProductoInventario()
+        {
+            try
+            {
+
+                if (!this.validaBDexist())
+                {
+                    Connection.cn = null;
+                    //MessageBox.Show("BD. no existe", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    File.Copy(@"\My Documents\eckerd_bk.s3db", Configuracion.directorio + Configuracion.baseDatos, true);
+                    File.Delete(@"\My Documents\productoInventario.txt");
+                    MessageBox.Show("Formateo exitoso.");
                 }
                 else
                 {
@@ -101,6 +128,21 @@ namespace PdaNet
             bool flag = true;
             if (File.Exists(Configuracion.directorio + Configuracion.baseDatos))
             //if (File.Exists(@"C:\eckerd.sdf"))
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+
+            }
+            return flag;
+        }
+
+        public bool checkFilePdaNameExist()
+        {
+            bool flag = true;
+            if (File.Exists(Configuracion.directorio + Configuracion.filePdaName))
             {
                 flag = true;
             }
@@ -148,7 +190,7 @@ namespace PdaNet
                     flag = false;
                     return flag;
                 }
-                
+
             }
             return flag;
         }
@@ -172,7 +214,7 @@ namespace PdaNet
                             {
                                 break;
                             }
-                            writer.WriteLine(((ProductoLaboratorio) enumerator.Current).inventario());
+                            writer.WriteLine(((ProductoLaboratorio)enumerator.Current).inventario());
                         }
                     }
                     finally
@@ -186,6 +228,7 @@ namespace PdaNet
                 }
                 writer.Close();
                 Connection.closeConexion();
+                Connection.cn = null;
                 File.Delete(@"\My Documents\eckerd.s3db");
                 MessageBox.Show("Proceso Finalizado");
             }
@@ -202,12 +245,48 @@ namespace PdaNet
             {
                 TextReader reader = new StreamReader(@"\My Documents\PdaUser.txt");
                 userName = reader.ReadLine();
+                reader.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e);
             }
             return "(" + userName + ")";
+        }
+
+        public bool deleteConfigPda()
+        {
+            bool flag = false;
+            try
+            {
+                if (Connection.getConexion() != null)
+                {
+                    Connection.closeConexion();
+                    Connection.cn = null;
+                }
+                if (File.Exists(Configuracion.directorio + Configuracion.baseDatos))
+                {
+                    File.Delete(Configuracion.directorio + Configuracion.baseDatos);
+                }
+                if (File.Exists(Configuracion.directorio + "eckerd_bk.s3db"))
+                {
+                    File.Delete(Configuracion.directorio + "eckerd_bk.s3db");
+                }
+                if (File.Exists(Configuracion.directorio + Configuracion.filePdaName))
+                {
+                    File.Delete(Configuracion.directorio + Configuracion.filePdaName);
+                }
+                if (File.Exists(Configuracion.directorio + Configuracion.archDiferencias))
+                {
+                    File.Delete(Configuracion.directorio + Configuracion.archDiferencias);
+                }
+                flag = true;
+            }
+            catch
+            {
+                flag = false;
+            }
+            return flag;
         }
 
         public void guardar(ProductoLaboratorio producto)
@@ -264,7 +343,7 @@ namespace PdaNet
                 {
                     if (enumerator.MoveNext())
                     {
-                        ProductoLaboratorio current = (ProductoLaboratorio) enumerator.Current;
+                        ProductoLaboratorio current = (ProductoLaboratorio)enumerator.Current;
                         this.rp.getDatosProductoInventario(current);
                         FrmCantidad cantidad = new FrmCantidad();
                         cantidad.setProductoLaboratorio(current);

@@ -13,8 +13,9 @@ namespace PdaNet
         public static string baseDatos = "eckerd.s3db";
         public static string directorio = @"\My Documents\";
         public static string archDiferencias = "productoInventario.txt";
+        public static string filePdaName = "PdaUser.txt";
         //public static string directorio = @"C:\";
         public static string lectoraTipo = "P";
-        public static string version = "2.1.0";
+        public static string version = "2.2.0";
     }
 }

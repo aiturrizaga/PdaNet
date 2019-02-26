@@ -85,6 +85,7 @@ namespace PdaNet
             this.txtEntero.SelectAll();
             if (this.producto.getInProdFraccionado().Equals("S"))
             {
+                this.txtEntero.Text = "0";
                 this.txtFraccion.Enabled = true;
                 this.btnResetFraccion.Enabled = true;
             }

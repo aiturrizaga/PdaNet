@@ -144,6 +144,7 @@
             // 
             // btnResetEntero
             // 
+            this.btnResetEntero.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnResetEntero.Location = new System.Drawing.Point(235, 135);
             this.btnResetEntero.Name = "btnResetEntero";
             this.btnResetEntero.Size = new System.Drawing.Size(72, 32);
@@ -154,6 +155,7 @@
             // btnResetFraccion
             // 
             this.btnResetFraccion.Enabled = false;
+            this.btnResetFraccion.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnResetFraccion.Location = new System.Drawing.Point(235, 192);
             this.btnResetFraccion.Name = "btnResetFraccion";
             this.btnResetFraccion.Size = new System.Drawing.Size(72, 31);

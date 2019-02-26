@@ -27,11 +27,10 @@ namespace PdaNet
                 if (dialogresult == DialogResult.Yes)
                 {
                     this.chequeador.exportar();
-                    Application.Exit();
                 }
                 
             }
-            actualizarEstado();
+            //actualizarEstado();
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
@@ -62,11 +61,14 @@ namespace PdaNet
             base.Close();
         }
 
+        private void FrmMain_Activated(object sender, EventArgs e)
+        {
+            this.actualizarEstado();
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.actualizarEstado();
-
-            this.Text = this.Text + " " + this.obtenerVersion() + " - " + this.chequeador.getUserNameFromFile();
             if (Directory.Exists(@"\Flash Disk"))
             {
                 Configuracion.lectoraTipo = "P";
@@ -95,6 +97,25 @@ namespace PdaNet
             return string.Concat(strArray);
         }
 
+        public void obtenerTitulo()
+        {
+            String varPdaName;
+            if (this.Text.Length > 0)
+            {
+                this.Text = "PdaNet";
+            }
+            if (!this.chequeador.checkFilePdaNameExist())
+            {
+                varPdaName = "Sin Nombre";
+            }
+            else
+            {
+                varPdaName = this.chequeador.getUserNameFromFile();
+            }
+
+            this.Text = this.Text + " " + this.obtenerVersion() + " - " + varPdaName.ToUpper() + " ";
+        }
+
         private void label1_ParentChanged(object sender, EventArgs e)
         {
 
@@ -102,11 +123,12 @@ namespace PdaNet
 
         private void btnEstado_Click(object sender, EventArgs e)
         {
-            actualizarEstado();
+            this.actualizarEstado();
         }
 
         public void actualizarEstado()
         {
+            this.obtenerTitulo();
             if (this.chequeador.validaBDexist())
             {
                 this.btnEstado.BackColor = System.Drawing.Color.Green;
