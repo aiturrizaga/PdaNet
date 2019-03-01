@@ -40,7 +40,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
-            this.txtCodigo.Location = new System.Drawing.Point(8, 25);
+            this.txtCodigo.Location = new System.Drawing.Point(8, 24);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(182, 32);
             this.txtCodigo.TabIndex = 0;
@@ -48,10 +48,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Teal;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.btnBuscar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBuscar.Location = new System.Drawing.Point(207, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(207, 24);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(99, 33);
             this.btnBuscar.TabIndex = 1;
@@ -61,17 +61,17 @@
             // gridProductos
             // 
             this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.gridProductos.Location = new System.Drawing.Point(8, 63);
+            this.gridProductos.Location = new System.Drawing.Point(8, 60);
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(298, 157);
+            this.gridProductos.Size = new System.Drawing.Size(298, 175);
             this.gridProductos.TabIndex = 2;
             this.gridProductos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridProductos_KeyPress);
             // 
             // lblNomProd
             // 
             this.lblNomProd.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lblNomProd.ForeColor = System.Drawing.Color.Blue;
-            this.lblNomProd.Location = new System.Drawing.Point(8, 5);
+            this.lblNomProd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
+            this.lblNomProd.Location = new System.Drawing.Point(8, 4);
             this.lblNomProd.Name = "lblNomProd";
             this.lblNomProd.Size = new System.Drawing.Size(174, 20);
             this.lblNomProd.Text = "Nombre del producto:";
@@ -81,7 +81,7 @@
             this.button1.BackColor = System.Drawing.Color.Firebrick;
             this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(8, 226);
+            this.button1.Location = new System.Drawing.Point(8, 241);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(298, 41);
             this.button1.TabIndex = 3;
@@ -98,7 +98,7 @@
             this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCodigo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmListaProducto";

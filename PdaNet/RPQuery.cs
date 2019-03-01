@@ -173,7 +173,7 @@ namespace PdaNet
         // Refactorizado para SQLite
         public ArrayList getProductosInventariados()
         {
-            string sql = "SELECT co_producto,co_laboratorio,in_prod_fraccionado,nu_anaquel,va_fraccion,ca_entero,ca_fraccion FROM ProductoInventario";
+            string sql = "SELECT co_producto,co_laboratorio,in_prod_fraccionado,nu_anaquel,nu_anaquel_concat,va_fraccion,ca_entero,ca_fraccion FROM ProductoInventario";
             SQLiteCommand command = new SQLiteCommand(sql, Connection.getConexion());
             SQLiteDataReader reader = command.ExecuteReader();
             ArrayList list = new ArrayList();
@@ -192,6 +192,7 @@ namespace PdaNet
                 laboratorio.setCoLaboratorio((string)reader["co_laboratorio"]);
                 laboratorio.setInProdFraccionado((string)reader["in_prod_fraccionado"]);
                 laboratorio.setNuAnaquel((string)reader["nu_anaquel"]);
+                laboratorio.setNuAnaquelConcant((string)reader["nu_anaquel_concat"]);
                 laboratorio.setVaFraccion(int.Parse(reader["va_fraccion"].ToString()));
                 laboratorio.setCaEntero(int.Parse(reader["ca_entero"].ToString()));
                 laboratorio.setCaFraccion(int.Parse(reader["ca_fraccion"].ToString()));
@@ -232,8 +233,8 @@ namespace PdaNet
         // Refactorizado para SQLite
         public void insertProductoInventario(ProductoLaboratorio producto)
         {
-            string sql = "INSERT INTO ProductoInventario(CO_PRODUCTO, CO_LABORATORIO, IN_PROD_FRACCIONADO, NU_ANAQUEL, VA_FRACCION, CA_ENTERO, CA_FRACCION) "
-                + "VALUES('" + producto.getCoProducto() + "', '" + producto.getCoLaboratorio() + "', '" + producto.getInProdFraccionado() + "', '" + producto.getNuAnaquel() + "', " + producto.getVaFraccion() + ", " + producto.getCaEntero() + ", " + producto.getCaFraccion() + ")";
+            string sql = "INSERT INTO ProductoInventario(CO_PRODUCTO, CO_LABORATORIO, IN_PROD_FRACCIONADO, NU_ANAQUEL, NU_ANAQUEL_CONCAT, VA_FRACCION, CA_ENTERO, CA_FRACCION) "
+                + "VALUES('" + producto.getCoProducto() + "', '" + producto.getCoLaboratorio() + "', '" + producto.getInProdFraccionado() + "', '" + producto.getNuAnaquel() + "', '" + producto.getNuAnaquel() + "', " + producto.getVaFraccion() + ", " + producto.getCaEntero() + ", " + producto.getCaFraccion() + ")";
             using (SQLiteTransaction sqlTransaction = Connection.getConexion().BeginTransaction())
             {
                 SQLiteCommand command = new SQLiteCommand(sql, Connection.getConexion());
@@ -246,7 +247,8 @@ namespace PdaNet
         public void updateProductoInventario(ProductoLaboratorio producto)
         {
             string sql = "UPDATE ProductoInventario SET "
-                + "nu_anaquel=" + producto.getNuAnaquel() + ", "
+                + "nu_anaquel= '" + producto.getNuAnaquel() + "', "
+                + "nu_anaquel_concat= '" + producto.getNuAnaquelConcat() + "', "
                 + "ca_entero=" + producto.getCaEntero() + ", "
                 + "ca_fraccion=" + producto.getCaFraccion()
                 + " WHERE co_producto='" + producto.getCoProducto() + "' ";
@@ -256,6 +258,49 @@ namespace PdaNet
                 command.ExecuteNonQuery();
                 sqlTransaction.Commit();
             }
+        }
+
+        public void updateAnaquelConcat(ProductoLaboratorio producto)
+        {
+            string sql = "UPDATE ProductoInventario SET "
+                + "nu_anaquel_concat= '" + producto.getNuAnaquelConcat() + "' "
+                + " WHERE co_producto='" + producto.getCoProducto() + "' ";
+            using (SQLiteTransaction sqlTransaction = Connection.getConexion().BeginTransaction())
+            {
+                SQLiteCommand command = new SQLiteCommand(sql, Connection.getConexion());
+                command.ExecuteNonQuery();
+                sqlTransaction.Commit();
+            }
+        }
+
+        public string getNuAnaquelConcatInventario(ProductoLaboratorio producto)
+        {
+            string sql = "SELECT nu_anaquel_concat FROM ProductoInventario WHERE co_producto = '" + producto.getCoProducto() + "'";
+            SQLiteCommand command = new SQLiteCommand(sql, Connection.getConexion());
+            SQLiteDataReader reader = command.ExecuteReader();
+            String nuAnaquelConcat = "";
+            try
+            {
+                while (true)
+                {
+                    if (!reader.Read())
+                    {
+                        reader.Close();
+                        reader = null;
+                        command.Dispose();
+                        command = null;
+                        break;
+                    }
+                    nuAnaquelConcat = reader.GetString(0);
+                }
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+
+            //return nuAnaquelConcat;
+            return nuAnaquelConcat;
         }
     }
 }

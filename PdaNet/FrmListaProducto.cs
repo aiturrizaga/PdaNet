@@ -34,7 +34,7 @@ namespace PdaNet
             DataColumn column = new DataColumn
             {
                 DataType = System.Type.GetType("System.String"),
-                ColumnName = "deProducto",
+                ColumnName = "Producto",
                 AutoIncrement = false,
                 Caption = "Producto",
                 ReadOnly = true,
@@ -44,7 +44,7 @@ namespace PdaNet
             column = new DataColumn
             {
                 DataType = System.Type.GetType("System.String"),
-                ColumnName = "deUnidad",
+                ColumnName = "Unidad",
                 AutoIncrement = false,
                 Caption = "Unidad",
                 ReadOnly = false,
@@ -54,7 +54,7 @@ namespace PdaNet
             column = new DataColumn
             {
                 DataType = System.Type.GetType("System.String"),
-                ColumnName = "deLaboratorio",
+                ColumnName = "Laboratorio",
                 AutoIncrement = false,
                 Caption = "Laboratorio",
                 ReadOnly = false,

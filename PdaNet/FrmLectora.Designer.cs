@@ -53,7 +53,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Teal;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.btnBuscar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Location = new System.Drawing.Point(23, 71);
@@ -76,7 +76,7 @@
             // lblProductos
             // 
             this.lblProductos.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.lblProductos.ForeColor = System.Drawing.Color.Blue;
+            this.lblProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblProductos.Location = new System.Drawing.Point(23, 126);
             this.lblProductos.Name = "lblProductos";
             this.lblProductos.Size = new System.Drawing.Size(272, 32);
@@ -95,7 +95,7 @@
             // lblCodigo
             // 
             this.lblCodigo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCodigo.ForeColor = System.Drawing.Color.Blue;
+            this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblCodigo.Location = new System.Drawing.Point(116, 9);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(179, 20);
@@ -114,7 +114,7 @@
             // lblAnaquel
             // 
             this.lblAnaquel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAnaquel.ForeColor = System.Drawing.Color.Blue;
+            this.lblAnaquel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblAnaquel.Location = new System.Drawing.Point(23, 9);
             this.lblAnaquel.Name = "lblAnaquel";
             this.lblAnaquel.Size = new System.Drawing.Size(87, 20);
@@ -146,7 +146,8 @@
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCodigo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLectora";

@@ -17,6 +17,7 @@ namespace PdaNet
         private int caFraccion { get; set; }
         private string inProdFraccionado { get; set; }
         private string nuAnaquel { get; set; }
+        private string nuAnaquelConcat { get; set; }
         private bool nuevo = true;
 
         public string inventario()
@@ -34,7 +35,7 @@ namespace PdaNet
             builder.Append("@");
             builder.Append(this.caFraccion);
             builder.Append("@");
-            builder.Append(this.nuAnaquel);
+            builder.Append(this.nuAnaquelConcat);
             builder.Append("@");
             builder.Append("N");
             return builder.ToString();
@@ -98,6 +99,11 @@ namespace PdaNet
         public int getVaFraccion()
         {
             return this.vaFraccion;
+        }
+
+        public string getNuAnaquelConcat()
+        {
+            return this.nuAnaquelConcat;
         }
 
         public bool isNuevo()
@@ -168,6 +174,11 @@ namespace PdaNet
         public void setVaFraccion(int vaFraccion)
         {
             this.vaFraccion = vaFraccion;
+        }
+
+        public void setNuAnaquelConcant(string nuAnaquelConcat)
+        {
+            this.nuAnaquelConcat = nuAnaquelConcat;
         }
 
     }

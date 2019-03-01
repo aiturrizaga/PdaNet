@@ -299,12 +299,71 @@ namespace PdaNet
                 }
                 else
                 {
+                    // Validación para concatenar anaqueles sin que se repita un anaquel que ya existe
+                    string[] nuAnaquelConcat = this.rp.getNuAnaquelConcatInventario(producto).Split(',');
+                    if (nuAnaquelConcat != null)
+                    {
+                        for (int i = 0; i < nuAnaquelConcat.Length; i++)
+                        {
+                            if (nuAnaquelConcat.GetValue(i).Equals(producto.getNuAnaquel()))
+                            {
+                                producto.setNuAnaquelConcant(string.Join(",", nuAnaquelConcat));
+                                break;
+                            }
+                            else
+                            {
+                                producto.setNuAnaquelConcant(string.Join(",", nuAnaquelConcat) + "," + producto.getNuAnaquel());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        producto.setNuAnaquelConcant(producto.getNuAnaquel());
+                    }
                     this.rp.updateProductoInventario(producto);
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show("Error al actualizar Productos.");
+                Console.WriteLine("Error: " + e);
+            }
+        }
+
+        public void updateAnaquelConcat(ProductoLaboratorio producto, string oldAnaquel)
+        {
+            try
+            {
+                string[] nuAnaquelConcat = this.rp.getNuAnaquelConcatInventario(producto).Split(',');
+
+                if (nuAnaquelConcat != null)
+                {
+                    for (int i = 0; i < nuAnaquelConcat.Length; i++)
+                    {
+                        if (nuAnaquelConcat.GetValue(i).Equals(producto.getNuAnaquel()))
+                        {
+                            string anaquel = string.Join(",", nuAnaquelConcat);
+                            anaquel = anaquel.Replace(nuAnaquelConcat.Length == 1 ? oldAnaquel : oldAnaquel + ",", "");
+                            producto.setNuAnaquelConcant(anaquel);
+                            break;
+                        }
+                        else
+                        {
+                            string anaquel = string.Join(",", nuAnaquelConcat);
+                            anaquel = anaquel.Replace(oldAnaquel, producto.getNuAnaquel());
+                            producto.setNuAnaquelConcant(anaquel);
+                        }
+                    }
+                }
+                else
+                {
+                    producto.setNuAnaquelConcant(producto.getNuAnaquel());
+                }
+                this.rp.updateProductoInventario(producto);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al actualizar el anaquel");
                 Console.WriteLine("Error: " + e);
             }
         }

@@ -41,7 +41,7 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.BackColor = System.Drawing.Color.Teal;
+            this.btnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.btnInventario.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnInventario.ForeColor = System.Drawing.SystemColors.Window;
             this.btnInventario.Location = new System.Drawing.Point(62, 57);
@@ -85,10 +85,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
+            this.label1.Location = new System.Drawing.Point(6, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(103, 28);
             this.label1.Text = "Estado PDA:";
             this.label1.ParentChanged += new System.EventHandler(this.label1_ParentChanged);
             // 
@@ -130,8 +130,8 @@
             this.Name = "FrmMain";
             this.Text = "PdaNet ";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyEvent);
             this.Activated += new System.EventHandler(this.FrmMain_Activated);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyEvent);
             this.ResumeLayout(false);
 
         }
