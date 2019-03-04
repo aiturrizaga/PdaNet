@@ -29,14 +29,41 @@ namespace PdaNet
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int longTxtEntero;
+            int longTxtFraccion;
             longTxtEntero = this.txtEntero.Text.Trim().Length;
+            longTxtFraccion = this.txtFraccion.Text.Trim().Length;
 
             if (!this.txtFraccion.Enabled)
             {
 
                 if (longTxtEntero > 2)
                 {
-                    DialogResult dialogresult = MessageBox.Show("Cantidad: " + this.txtEntero.Text.Trim() + "  Estas Seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
+                    DialogResult dialogresult = MessageBox.Show("Cantidad Entero: " + this.txtEntero.Text.Trim() + "  Estas Seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                    if (dialogresult == DialogResult.Yes)
+                    {
+                        this.guardarDatos();
+                    }
+                }
+                else
+                {
+                    this.guardarDatos();
+                }
+            }
+            else
+            {
+                if (longTxtEntero > 2)
+                {
+                    DialogResult dialogresult = MessageBox.Show("Cantidad Entero: " + this.txtEntero.Text.Trim() + "  Estas Seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                    if (dialogresult == DialogResult.Yes)
+                    {
+                        this.guardarDatos();
+                    }
+                }
+                else if (longTxtFraccion > 2)
+                {
+                    DialogResult dialogresult = MessageBox.Show("Cantidad Fracción: " + this.txtFraccion.Text.Trim() + "  Estas Seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                     if (dialogresult == DialogResult.Yes)
                     {
