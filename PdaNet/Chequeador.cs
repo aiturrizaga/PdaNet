@@ -89,12 +89,12 @@ namespace PdaNet
                 else
                 {
                     this.rp.deleteAllProductoInventario();
-                    MessageBox.Show("Formateo exitoso.");
+                    MessageBox.Show("Formateo exitoso", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al formatear.");
+                MessageBox.Show("Error al formatear", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -109,17 +109,17 @@ namespace PdaNet
                     //MessageBox.Show("BD. no existe", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                     File.Copy(@"\My Documents\eckerd_bk.s3db", Configuracion.directorio + Configuracion.baseDatos, true);
                     File.Delete(@"\My Documents\productoInventario.txt");
-                    MessageBox.Show("Formateo exitoso.");
+                    MessageBox.Show("Formateo exitoso", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
                     this.rp.deleteAllProductoInventario();
-                    MessageBox.Show("Formateo exitoso.");
+                    MessageBox.Show("Formateo exitoso", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al formatear.");
+                MessageBox.Show("Error al formatear", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -230,11 +230,11 @@ namespace PdaNet
                 Connection.closeConexion();
                 Connection.cn = null;
                 File.Delete(@"\My Documents\eckerd.s3db");
-                MessageBox.Show("Proceso Finalizado");
+                MessageBox.Show("Proceso Finalizado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
             }
             catch (Exception)
             {
-                MessageBox.Show("No existe archivo por cargar");
+                MessageBox.Show("No existe archivo por cargar", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -325,7 +325,7 @@ namespace PdaNet
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al actualizar Productos.");
+                MessageBox.Show("Error al actualizar Productos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
                 Console.WriteLine("Error: " + e);
             }
         }
@@ -363,7 +363,7 @@ namespace PdaNet
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al actualizar el anaquel");
+                MessageBox.Show("Error al actualizar el anaquel", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
                 Console.WriteLine("Error: " + e);
             }
         }

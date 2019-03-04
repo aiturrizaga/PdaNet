@@ -49,9 +49,10 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblEnteroActual = new System.Windows.Forms.Label();
             this.lblAnaquel = new System.Windows.Forms.Label();
-            this.txtNunAnaquel = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtNumAnaquel = new System.Windows.Forms.TextBox();
+            this.lblCantAnt = new System.Windows.Forms.Label();
             this.pnlCabezera = new System.Windows.Forms.Panel();
+            this.btnVerAnaqueles = new System.Windows.Forms.Button();
             this.pnlAnaquel = new System.Windows.Forms.Panel();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCancelarAnaquel = new System.Windows.Forms.Button();
@@ -91,16 +92,16 @@
             this.lblProducto.ForeColor = System.Drawing.Color.White;
             this.lblProducto.Location = new System.Drawing.Point(8, 70);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(74, 20);
-            this.lblProducto.Text = "Producto:";
+            this.lblProducto.Size = new System.Drawing.Size(43, 20);
+            this.lblProducto.Text = "Prod:";
             // 
             // lblDeProducto
             // 
             this.lblDeProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblDeProducto.ForeColor = System.Drawing.Color.White;
-            this.lblDeProducto.Location = new System.Drawing.Point(78, 71);
+            this.lblDeProducto.Location = new System.Drawing.Point(50, 71);
             this.lblDeProducto.Name = "lblDeProducto";
-            this.lblDeProducto.Size = new System.Drawing.Size(225, 32);
+            this.lblDeProducto.Size = new System.Drawing.Size(199, 32);
             this.lblDeProducto.Text = "Plidan Tab. 10 Unidades";
             // 
             // lblUnidad
@@ -185,6 +186,8 @@
             this.txtEntero.TabIndex = 5;
             this.txtEntero.Text = "1500";
             this.txtEntero.WordWrap = false;
+            this.txtEntero.GotFocus += this.txtEntero_GotFocus;
+            this.txtEntero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntero_KeyPress);
             // 
             // txtFraccion
             // 
@@ -197,6 +200,8 @@
             this.txtFraccion.TabIndex = 4;
             this.txtFraccion.Text = "1500";
             this.txtFraccion.WordWrap = false;
+            this.txtFraccion.GotFocus += this.txtFraccion_GotFocus;
+            this.txtFraccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFraccion_KeyPress);
             // 
             // lblFraccionActual
             // 
@@ -241,43 +246,58 @@
             this.lblAnaquel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblAnaquel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.lblAnaquel.ForeColor = System.Drawing.Color.White;
-            this.lblAnaquel.Location = new System.Drawing.Point(248, 8);
+            this.lblAnaquel.Location = new System.Drawing.Point(254, 5);
             this.lblAnaquel.Name = "lblAnaquel";
-            this.lblAnaquel.Size = new System.Drawing.Size(68, 20);
-            this.lblAnaquel.Text = "Anaquel:";
+            this.lblAnaquel.Size = new System.Drawing.Size(55, 20);
+            this.lblAnaquel.Text = "Anaquel";
             // 
-            // txtNunAnaquel
+            // txtNumAnaquel
             // 
-            this.txtNunAnaquel.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.txtNunAnaquel.Location = new System.Drawing.Point(248, 25);
-            this.txtNunAnaquel.MaxLength = 3;
-            this.txtNunAnaquel.Name = "txtNunAnaquel";
-            this.txtNunAnaquel.Size = new System.Drawing.Size(55, 32);
-            this.txtNunAnaquel.TabIndex = 18;
-            this.txtNunAnaquel.Text = "1";
+            this.txtNumAnaquel.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.txtNumAnaquel.Location = new System.Drawing.Point(254, 22);
+            this.txtNumAnaquel.MaxLength = 3;
+            this.txtNumAnaquel.Name = "txtNumAnaquel";
+            this.txtNumAnaquel.Size = new System.Drawing.Size(55, 32);
+            this.txtNumAnaquel.TabIndex = 18;
+            this.txtNumAnaquel.Text = "1";
+            this.txtNumAnaquel.GotFocus += this.txtNumAnaquel_GotFocus;
+            this.txtNumAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumAnaquel_KeyPress);
             // 
-            // label4
+            // lblCantAnt
             // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
-            this.label4.Location = new System.Drawing.Point(200, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 16);
-            this.label4.Text = "Cant. Anterior:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblCantAnt.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCantAnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
+            this.lblCantAnt.Location = new System.Drawing.Point(200, 117);
+            this.lblCantAnt.Name = "lblCantAnt";
+            this.lblCantAnt.Size = new System.Drawing.Size(107, 16);
+            this.lblCantAnt.Text = "Cant. Anterior:";
+            this.lblCantAnt.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pnlCabezera
             // 
             this.pnlCabezera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
+            this.pnlCabezera.Controls.Add(this.btnVerAnaqueles);
+            this.pnlCabezera.Controls.Add(this.lblProducto);
             this.pnlCabezera.Controls.Add(this.lblDeProducto);
             this.pnlCabezera.Controls.Add(this.lblCodigoValor);
             this.pnlCabezera.Controls.Add(this.lblCodigo);
             this.pnlCabezera.Controls.Add(this.lblLaboratorioValue);
             this.pnlCabezera.Controls.Add(this.lblLaboratorio);
-            this.pnlCabezera.Controls.Add(this.lblProducto);
+            this.pnlCabezera.Controls.Add(this.txtNumAnaquel);
+            this.pnlCabezera.Controls.Add(this.lblAnaquel);
             this.pnlCabezera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabezera.Name = "pnlCabezera";
             this.pnlCabezera.Size = new System.Drawing.Size(320, 106);
+            // 
+            // btnVerAnaqueles
+            // 
+            this.btnVerAnaqueles.BackColor = System.Drawing.SystemColors.Window;
+            this.btnVerAnaqueles.Location = new System.Drawing.Point(254, 70);
+            this.btnVerAnaqueles.Name = "btnVerAnaqueles";
+            this.btnVerAnaqueles.Size = new System.Drawing.Size(55, 30);
+            this.btnVerAnaqueles.TabIndex = 6;
+            this.btnVerAnaqueles.Text = "Ver";
+            this.btnVerAnaqueles.Click += new System.EventHandler(this.btnVerAnaqueles_Click);
             // 
             // pnlAnaquel
             // 
@@ -348,13 +368,11 @@
             this.Controls.Add(this.lblUnidadValue);
             this.Controls.Add(this.lblUnidadFraccion);
             this.Controls.Add(this.lblEnteroActual);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblCantAnt);
             this.Controls.Add(this.lblFraccionActual);
             this.Controls.Add(this.txtEntero);
             this.Controls.Add(this.lblUnidad);
-            this.Controls.Add(this.txtNunAnaquel);
             this.Controls.Add(this.txtFraccion);
-            this.Controls.Add(this.lblAnaquel);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pnlCabezera);
@@ -394,13 +412,14 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblEnteroActual;
         private System.Windows.Forms.Label lblAnaquel;
-        public System.Windows.Forms.TextBox txtNunAnaquel;
-        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txtNumAnaquel;
+        private System.Windows.Forms.Label lblCantAnt;
         private System.Windows.Forms.Panel pnlCabezera;
         private System.Windows.Forms.Panel pnlAnaquel;
         private System.Windows.Forms.Button btnCancelarAnaquel;
         private System.Windows.Forms.ListBox lstAnaquel;
         private System.Windows.Forms.Label lblListTitle;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnVerAnaqueles;
     }
 }

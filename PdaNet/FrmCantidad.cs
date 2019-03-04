@@ -77,6 +77,48 @@ namespace PdaNet
             }
         }
 
+        private void txtFraccion_GotFocus(object sender, EventArgs e)
+        {
+            this.txtFraccion = sender as TextBox;
+            Timer timer = new Timer();
+
+            timer.Interval = 100;
+            timer.Enabled = true;
+            timer.Tick += (EventHandler)delegate(object obj, EventArgs args)
+            {
+                this.txtFraccion.SelectAll();
+                timer.Dispose();
+            };
+        }
+
+        private void txtNumAnaquel_GotFocus(object sender, EventArgs e)
+        {
+            this.txtNumAnaquel = sender as TextBox;
+            Timer timer = new Timer();
+
+            timer.Interval = 100;
+            timer.Enabled = true;
+            timer.Tick += (EventHandler)delegate(object obj, EventArgs args)
+            {
+                this.txtNumAnaquel.SelectAll();
+                timer.Dispose();
+            };
+        }
+
+        private void txtEntero_GotFocus(object sender, EventArgs e)
+        {
+            this.txtEntero = sender as TextBox;
+            Timer timer = new Timer();
+
+            timer.Interval = 100;
+            timer.Enabled = true;
+            timer.Tick += (EventHandler)delegate(object obj, EventArgs args)
+            {
+                this.txtEntero.SelectAll();
+                timer.Dispose();
+            };
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             base.Close();
@@ -119,14 +161,7 @@ namespace PdaNet
             this.lblLaboratorioValue.Text = this.producto.getDeLaboratorio();
             this.lblEnteroActual.Text = this.producto.getCaEntero().ToString();
             this.lblFraccionActual.Text = this.producto.getCaFraccion().ToString();
-            if (this.producto.getNuAnaquel() != null)
-            {
-                this.txtNunAnaquel.Text = this.producto.getNuAnaquel();
-            }
-            else
-            {
-                this.txtNunAnaquel.Text = this.chequeador.getNumAnaquel();
-            }
+            this.txtNumAnaquel.Text = this.chequeador.getNumAnaquel();
             this.txtEntero.Text = "1";
             this.txtFraccion.Text = "0";
             this.txtEntero.SelectAll();
@@ -147,26 +182,14 @@ namespace PdaNet
         {
             if (e.KeyCode == Keys.F2)
             {
-                RPQuery rp = new RPQuery();
-                string[] nuAnaquelConcat = rp.getNuAnaquelConcatInventario(this.producto).Split(',');
-                this.lstAnaquel.DataSource = nuAnaquelConcat;
-
-                this.lblAnaquel.Location = new System.Drawing.Point(8, 34);
-                this.txtNunAnaquel.Location = new System.Drawing.Point(8, 60);
-                this.lblAnaquel.BackColor = System.Drawing.Color.White;
-                this.lblAnaquel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
-                this.pnlAnaquel.Controls.Add(this.lblAnaquel);
-                this.pnlAnaquel.Controls.Add(this.txtNunAnaquel);
-
-                this.pnlAnaquel.Visible = true;
-                this.pnlAnaquel.BringToFront();
+                this.openPanelUpdate();
             }
         }
 
         private void lstAnaquel_SelectedIndexChanged(object sender, EventArgs e)
         {
             string txtSelected = this.lstAnaquel.SelectedItem.ToString();
-            this.txtNunAnaquel.Text = txtSelected;
+            this.txtNumAnaquel.Text = txtSelected;
         }
 
         public ProductoLaboratorio getProductoLaboratorio()
@@ -182,9 +205,9 @@ namespace PdaNet
             }
             else if (int.Parse(this.txtFraccion.Text) >= this.producto.getVaFraccion() && this.producto.getVaFraccion() != 0)
             {
-                MessageBox.Show("La U.Fracción debe ser menor que la fraccíón del producto");
+                MessageBox.Show("La U.Fracción debe ser menor que la fraccíón del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
-            else if (this.txtNunAnaquel.Text.Length != 0)
+            else if (this.txtNumAnaquel.Text.Length != 0)
             {
                 int caEntero = this.producto.getCaEntero() + int.Parse(this.txtEntero.Text);
                 int caFraccion = 0;
@@ -194,13 +217,13 @@ namespace PdaNet
                     this.producto.setCaFraccion(caFraccion);
                 }
                 this.producto.setCaEntero(caEntero);
-                this.producto.setNuAnaquel(this.txtNunAnaquel.Text);
+                this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
                 this.chequeador.guardar(this.producto);
                 base.Close();
             }
             else
             {
-                MessageBox.Show("Ingrese el anaquel");
+                MessageBox.Show("Ingrese el anaquel", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -219,38 +242,9 @@ namespace PdaNet
             this.producto = producto;
         }
 
-        /*
+        
         private void txtEntero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int longTxtEntero;
-
-            if (e.KeyChar == '\r')
-            {
-                longTxtEntero = this.txtEntero.Text.Trim().Length;
-
-                if (!this.txtFraccion.Enabled)
-                {
-
-                    if (longTxtEntero > 2)
-                    {
-                        DialogResult dialogresult = MessageBox.Show("Seguro de Ingresar Cantidad: " + this.txtEntero.Text.Trim(), "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
-
-                        if (dialogresult == DialogResult.Yes)
-                        {
-                            this.guardarDatos();
-                        }
-                    }
-                    else
-                    {
-                        this.guardarDatos();
-                    }
-                }
-                else
-                {
-                    this.txtFraccion.SelectAll();
-                    this.txtFraccion.Focus();
-                }
-            } else
             // Validación para ingresar solo números
             if (Char.IsDigit(e.KeyChar))
             {
@@ -268,14 +262,10 @@ namespace PdaNet
             {
                 e.Handled = true;
             }
-        }*/
-        /*
+        }
+        
         private void txtFraccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r')
-            {
-                this.guardarDatos();
-            } else
             // Validación para ingresar solo números
             if (Char.IsDigit(e.KeyChar))
             {
@@ -293,15 +283,11 @@ namespace PdaNet
             {
                 e.Handled = true;
             }
-        }*/
+        }
 
-        /*
-        private void txtNunAnaquel_KeyPress(object sender, KeyPressEventArgs e)
+        
+        private void txtNumAnaquel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r')
-            {
-                this.guardarDatos();
-            } else
             // Validación para ingresar solo números
             if (Char.IsDigit(e.KeyChar))
             {
@@ -319,7 +305,7 @@ namespace PdaNet
             {
                 e.Handled = true;
             }
-        }*/
+        }
 
         private bool validarDatos()
         {
@@ -363,9 +349,9 @@ namespace PdaNet
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (this.txtNunAnaquel.Text.Length != 0)
+            if (this.txtNumAnaquel.Text.Length != 0)
             {
-                this.producto.setNuAnaquel(this.txtNunAnaquel.Text);
+                this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
                 this.chequeador.updateAnaquelConcat(this.producto, this.lstAnaquel.GetItemText(this.lstAnaquel.SelectedItem));
                 MessageBox.Show("Anaquel actualizado");
                 closePanelUpdate();
@@ -379,14 +365,40 @@ namespace PdaNet
         public void closePanelUpdate()
         {
             this.pnlCabezera.Controls.Add(this.lblAnaquel);
-            this.pnlCabezera.Controls.Add(this.txtNunAnaquel);
+            this.pnlCabezera.Controls.Add(this.txtNumAnaquel);
 
-            this.txtNunAnaquel.Location = new System.Drawing.Point(248, 25);
+            this.btnVerAnaqueles.Visible = true;
+
+            this.txtNumAnaquel.Location = new System.Drawing.Point(254, 22);
             this.lblAnaquel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblAnaquel.ForeColor = System.Drawing.Color.White;
-            this.lblAnaquel.Location = new System.Drawing.Point(248, 8);
+            this.lblAnaquel.Location = new System.Drawing.Point(254, 5);
             this.pnlAnaquel.Visible = false;
             this.pnlAnaquel.SendToBack();
+        }
+
+        public void openPanelUpdate()
+        {
+            RPQuery rp = new RPQuery();
+            string[] nuAnaquelConcat = rp.getNuAnaquelConcatInventario(this.producto).Split(',');
+            this.lstAnaquel.DataSource = nuAnaquelConcat;
+
+            this.btnVerAnaqueles.Visible = false;
+
+            this.lblAnaquel.Location = new System.Drawing.Point(8, 34);
+            this.txtNumAnaquel.Location = new System.Drawing.Point(8, 60);
+            this.lblAnaquel.BackColor = System.Drawing.Color.White;
+            this.lblAnaquel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
+            this.pnlAnaquel.Controls.Add(this.lblAnaquel);
+            this.pnlAnaquel.Controls.Add(this.txtNumAnaquel);
+
+            this.pnlAnaquel.Visible = true;
+            this.pnlAnaquel.BringToFront();
+        }
+
+        private void btnVerAnaqueles_Click(object sender, EventArgs e)
+        {
+            this.openPanelUpdate();
         }
 
     }

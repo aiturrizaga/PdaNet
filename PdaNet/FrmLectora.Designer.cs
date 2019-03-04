@@ -38,7 +38,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNumAnaquel = new System.Windows.Forms.TextBox();
             this.lblAnaquel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtCodigo
@@ -48,7 +48,6 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(179, 32);
             this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // btnBuscar
@@ -120,24 +119,24 @@
             this.lblAnaquel.Size = new System.Drawing.Size(87, 20);
             this.lblAnaquel.Text = "Anaquel:";
             // 
-            // button1
+            // btnRegresar
             // 
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(23, 217);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(272, 45);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Regresar";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegresar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnRegresar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRegresar.ForeColor = System.Drawing.Color.White;
+            this.btnRegresar.Location = new System.Drawing.Point(23, 217);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(272, 45);
+            this.btnRegresar.TabIndex = 8;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmLectora
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(318, 288);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMaestro);
             this.Controls.Add(this.lblAnaquel);
             this.Controls.Add(this.txtNumAnaquel);
@@ -169,6 +168,6 @@
         public System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtNumAnaquel;
         private System.Windows.Forms.Label lblAnaquel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }
