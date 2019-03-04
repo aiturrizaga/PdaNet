@@ -84,9 +84,9 @@ namespace PdaNet
                             }
                             ProductoLaboratorio current = (ProductoLaboratorio)enumerator.Current;
                             DataRow row = table.NewRow();
-                            row["deProducto"] = current.getDeProducto();
-                            row["deUnidad"] = current.getDeUnidad();
-                            row["deLaboratorio"] = current.getDeLaboratorio();
+                            row["Producto"] = current.getDeProducto();
+                            row["Unidad"] = current.getDeUnidad();
+                            row["Laboratorio"] = current.getDeLaboratorio();
                             table.Rows.Add(row);
                         }
                     }
