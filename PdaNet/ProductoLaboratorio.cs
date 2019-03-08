@@ -35,7 +35,7 @@ namespace PdaNet
             builder.Append("@");
             builder.Append(this.caFraccion);
             builder.Append("@");
-            builder.Append(this.nuAnaquelConcat);
+            builder.Append(this.nuAnaquelConcat.Equals("") ? "0" : this.nuAnaquelConcat);
             builder.Append("@");
             builder.Append("N");
             return builder.ToString();

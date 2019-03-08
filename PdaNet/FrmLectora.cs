@@ -17,6 +17,7 @@ namespace PdaNet
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            this.txtNumAnaquel.Text = this.txtNumAnaquel.Text.Trim();
             if (this.txtNumAnaquel.Text.Length == 0)
             {
                 MessageBox.Show("Ingrese el número de anaquel");
@@ -105,6 +106,7 @@ namespace PdaNet
         {
             if (e.KeyChar == '\r')
             {
+                this.txtNumAnaquel.Text = this.txtNumAnaquel.Text.Trim();
                 if (this.txtNumAnaquel.Text.Length == 0)
                 {
                     MessageBox.Show("Ingrese el número de anaquel");

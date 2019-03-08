@@ -353,6 +353,7 @@ namespace PdaNet
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            this.txtNumAnaquel.Text = this.txtNumAnaquel.Text.Trim();
             if (this.txtNumAnaquel.Text.Length != 0)
             {
                 this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
