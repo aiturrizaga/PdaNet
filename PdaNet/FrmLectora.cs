@@ -17,7 +17,11 @@ namespace PdaNet
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (this.txtCodigo.Text == String.Empty)
+            if (this.txtNumAnaquel.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese el número de anaquel");
+            }
+            else if (this.txtCodigo.Text == String.Empty)
             {
                 MessageBox.Show("Ingrese el código del producto");
             }
@@ -41,9 +45,10 @@ namespace PdaNet
             string anaquel;
             string codProd;
             char[] zero = { '0' };
-            codProd = (this.txtCodigo.Text.Length != 6) ? this.txtCodigo.Text.TrimStart(zero) : this.txtCodigo.Text;
-            orden = (this.txtCodigo.Text.Length != 6) ? 2 : 1;
-            anaquel = this.txtNumAnaquel.Text;
+            codProd = this.txtCodigo.Text.Trim();
+            codProd = (codProd.Length != 6) ? codProd.TrimStart(zero) : codProd;
+            orden = (codProd.Length != 6) ? 2 : 1;
+            anaquel = this.txtNumAnaquel.Text.Trim();
             this.chequeador.setOrden(orden);
             this.chequeador.setNumAnaquel(anaquel);
             this.chequeador.setFrmParent(this);
@@ -98,15 +103,13 @@ namespace PdaNet
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*if (e.KeyChar == '\t')
-            {
-                TabPage page = this.txtCodigo.TabIndex;
-                foreach (Control ctl in page.Controls) ctl.Enabled = false;
-            }
-            else*/
             if (e.KeyChar == '\r')
             {
-                if (this.txtCodigo.Text == String.Empty)
+                if (this.txtNumAnaquel.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese el número de anaquel");
+                }
+                else if (this.txtCodigo.Text == String.Empty)
                 {
                     MessageBox.Show("Ingrese el código del producto");
                 }
@@ -141,10 +144,6 @@ namespace PdaNet
 
         private void txtNumAnaquel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*if (e.KeyChar == '\t')
-            {
-                this.txtCodigo.Focus();
-            } else*/
             // Validación para ingresar solo números
             if (Char.IsDigit(e.KeyChar))
             {

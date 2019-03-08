@@ -176,6 +176,10 @@ namespace PdaNet
 
         private void FrmCantidad_Load(object sender, EventArgs e)
         {
+            if (this.producto.isNuevo())
+            {
+                this.btnVerAnaqueles.Visible = false;
+            }
         }
 
         private void FrmCantidad_KeyUp(object sender, KeyEventArgs e)
@@ -201,7 +205,7 @@ namespace PdaNet
         {
             if (!this.validarDatos())
             {
-                MessageBox.Show("Valores incorrectos");
+                MessageBox.Show("Ingrese un valor");
             }
             else if (int.Parse(this.txtFraccion.Text) >= this.producto.getVaFraccion() && this.producto.getVaFraccion() != 0)
             {
@@ -353,12 +357,12 @@ namespace PdaNet
             {
                 this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
                 this.chequeador.updateAnaquelConcat(this.producto, this.lstAnaquel.GetItemText(this.lstAnaquel.SelectedItem));
-                MessageBox.Show("Anaquel actualizado");
-                closePanelUpdate();
+                MessageBox.Show("Anaquel actualizado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                base.Close();
             }
             else
             {
-                MessageBox.Show("Ingrese el anaquel");
+                MessageBox.Show("Ingrese el número de anaquel");
             }
         }
 
@@ -370,6 +374,8 @@ namespace PdaNet
             this.btnVerAnaqueles.Visible = true;
 
             this.txtNumAnaquel.Location = new System.Drawing.Point(254, 22);
+            this.txtNumAnaquel.Text = this.chequeador.getNumAnaquel();
+            this.txtNumAnaquel.ReadOnly = true;
             this.lblAnaquel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.lblAnaquel.ForeColor = System.Drawing.Color.White;
             this.lblAnaquel.Location = new System.Drawing.Point(254, 5);
@@ -387,6 +393,7 @@ namespace PdaNet
 
             this.lblAnaquel.Location = new System.Drawing.Point(8, 34);
             this.txtNumAnaquel.Location = new System.Drawing.Point(8, 60);
+            this.txtNumAnaquel.ReadOnly = false;
             this.lblAnaquel.BackColor = System.Drawing.Color.White;
             this.lblAnaquel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(105)))), ((int)(((byte)(29)))));
             this.pnlAnaquel.Controls.Add(this.lblAnaquel);

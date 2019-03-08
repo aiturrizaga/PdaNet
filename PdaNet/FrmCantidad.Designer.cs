@@ -186,8 +186,8 @@
             this.txtEntero.TabIndex = 5;
             this.txtEntero.Text = "1500";
             this.txtEntero.WordWrap = false;
-            this.txtEntero.GotFocus += this.txtEntero_GotFocus;
             this.txtEntero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntero_KeyPress);
+            this.txtEntero.GotFocus += this.txtEntero_GotFocus;
             // 
             // txtFraccion
             // 
@@ -200,8 +200,8 @@
             this.txtFraccion.TabIndex = 4;
             this.txtFraccion.Text = "1500";
             this.txtFraccion.WordWrap = false;
-            this.txtFraccion.GotFocus += this.txtFraccion_GotFocus;
             this.txtFraccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFraccion_KeyPress);
+            this.txtFraccion.GotFocus += this.txtFraccion_GotFocus;
             // 
             // lblFraccionActual
             // 
@@ -257,11 +257,12 @@
             this.txtNumAnaquel.Location = new System.Drawing.Point(254, 22);
             this.txtNumAnaquel.MaxLength = 3;
             this.txtNumAnaquel.Name = "txtNumAnaquel";
+            this.txtNumAnaquel.ReadOnly = true;
             this.txtNumAnaquel.Size = new System.Drawing.Size(55, 32);
             this.txtNumAnaquel.TabIndex = 18;
             this.txtNumAnaquel.Text = "1";
-            this.txtNumAnaquel.GotFocus += this.txtNumAnaquel_GotFocus;
             this.txtNumAnaquel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumAnaquel_KeyPress);
+            this.txtNumAnaquel.GotFocus += this.txtNumAnaquel_GotFocus;
             // 
             // lblCantAnt
             // 
