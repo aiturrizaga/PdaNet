@@ -16,6 +16,6 @@ namespace PdaNet
         public static string filePdaName = "PdaUser.txt";
         //public static string directorio = @"C:\";
         public static string lectoraTipo = "P";
-        public static string version = "2.3.0";
+        public static string version = "2.3.1";
     }
 }

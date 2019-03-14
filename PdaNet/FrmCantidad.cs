@@ -356,10 +356,17 @@ namespace PdaNet
             this.txtNumAnaquel.Text = this.txtNumAnaquel.Text.Trim();
             if (this.txtNumAnaquel.Text.Length != 0)
             {
-                this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
-                this.chequeador.updateAnaquelConcat(this.producto, this.lstAnaquel.GetItemText(this.lstAnaquel.SelectedItem));
-                MessageBox.Show("Anaquel actualizado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
-                base.Close();
+                DialogResult dialogresult = MessageBox.Show("¿Estás seguro de actualizar el anaquel?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (dialogresult == DialogResult.Yes)
+                {
+                    this.producto.setNuAnaquel(this.txtNumAnaquel.Text);
+                    this.chequeador.updateAnaquelConcat(this.producto, this.lstAnaquel.GetItemText(this.lstAnaquel.SelectedItem));
+                    base.Close();
+                }
+                else
+                {
+                    this.txtNumAnaquel.Focus();
+                }
             }
             else
             {
